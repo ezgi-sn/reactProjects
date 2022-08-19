@@ -1,0 +1,25 @@
+
+input{
+    margin-top: 10px;
+    height: 25px;
+    line-height: 15px;
+    text-indent: 10px;
+    width: 100%;
+}
+li{
+    padding: 10px;
+    background-color: bisque;
+}
+li span{
+    display: block;
+}
+
+li span.name{
+    float: left;
+}
+li span.phone{
+    float: right;
+}
+li span.clearfix{
+    clear: both;
+}
