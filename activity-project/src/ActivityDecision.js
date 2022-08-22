@@ -10,21 +10,29 @@ class ActivityDecision extends Component {
     }
     activityDecision(latitude){
         const currentMonth=new Date().getMonth();
+        const summer={
+            text:'You can go to swimming pool',
+            icon:'sun'
+        }
+        const winter={
+            text:'You can go to ski',
+            icon:'snow'
+        }
         if(latitude<0){
             if(currentMonth>9 && currentMonth<3){
                 
-                return 'You can go to swimming pool';
+                return summer;
             }
             else{
-                return 'You can go to ski';
+                return winter;
             }
         }
         else{
             if(currentMonth>9 && currentMonth<3){
-                return 'You can go to ski';
+                return winter;
             }
             else{
-                return 'You can go to swimming pool';
+                return summer;
             }
         }
 
@@ -47,11 +55,12 @@ class ActivityDecision extends Component {
       if(latitude!==0&&!error){
         const activity=this.activityDecision(latitude);
         return(
-            <div>
-            Latitude : {latitude}
-            <br />
-            {activity}
-          </div>
+            <h2 className="ui header">
+  <i className={`${activity.icon} outline icon`}></i>
+  <div className="content">
+    {activity.text}
+  </div>
+</h2>
         )
       }
       else if(latitude===0&&error){
